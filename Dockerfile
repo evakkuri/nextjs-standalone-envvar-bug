@@ -22,6 +22,12 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+RUN \
+    echo "API_URL_1=http://ifconfig.co" >> .env.local && \
+    echo "NEXT_PUBLIC_API_URL_1=http://ifconfig.co" >> .env.local && \
+    echo "API_URL_2=http://ifconfig.co" >> .env && \
+    echo "NEXT_PUBLIC_API_URL_2=http://ifconfig.co" >> .env
+
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
 # Uncomment the following line in case you want to disable telemetry during the build.
